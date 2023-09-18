@@ -12,5 +12,6 @@ return function(ContainerConfigurator $container): void {
             service('request_stack')->ignoreOnInvalid(),
             param('kernel.project_dir'),
             '/_profiler/open?file=%%f&line=%%l#line%%l',
-        ]);
+        ])
+    ;
 };

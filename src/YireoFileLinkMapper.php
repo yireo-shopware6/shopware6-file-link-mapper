@@ -3,16 +3,13 @@
 namespace Yireo\FileLinkMapper;
 
 use Shopware\Core\Framework\Plugin;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Yireo\FileLinkMapper\DependencyInjection\YireoFileLinkMapperExtension;
 
 class YireoFileLinkMapper extends Plugin
 {
-    public function build(ContainerBuilder $container): void
+    public function getContainerExtension(): ?ExtensionInterface
     {
-        parent::build($container);
-        $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/Resources/config'));
-        $loader->load('services.php');
+        return new YireoFileLinkMapperExtension();
     }
 }
