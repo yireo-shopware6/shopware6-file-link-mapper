@@ -3,13 +3,20 @@
 namespace Yireo\FileLinkMapper;
 
 use Shopware\Core\Framework\Plugin;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Yireo\FileLinkMapper\DependencyInjection\YireoFileLinkMapperExtension;
+use Yireo\FileLinkMapper\DependencyInjection\CompilerPass;
+use Yireo\FileLinkMapper\DependencyInjection\Extension;
 
-class YireoFileLinkMapper extends Plugin
+final class YireoFileLinkMapper extends Plugin
 {
+    public function build(ContainerBuilder $container): void
+    {
+        $container->addCompilerPass(new CompilerPass());
+    }
+
     public function getContainerExtension(): ?ExtensionInterface
     {
-        return new YireoFileLinkMapperExtension();
+        return new Extension();
     }
 }
