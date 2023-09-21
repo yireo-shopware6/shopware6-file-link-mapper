@@ -13,7 +13,7 @@ class CompilerPass implements CompilerPassInterface
     {
         $originalService = $container->getDefinition('debug.file_link_formatter');
 
-        $newService = new Definition(FileLinkFormatterRewrite::class);
+        $newService = new Definition(FileLinkFormatterRewrite::class); // @todo: Use ChildDefinition and setParent() instead?
         $newService->setArguments($originalService->getArguments());
         $newService->setAutowired(true);
         $newService->setAutoconfigured(true);

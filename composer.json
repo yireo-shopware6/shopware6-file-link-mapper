@@ -1,7 +1,7 @@
 {
   "name": "yireo/shopware6-file-link-mapper",
   "description": "Shopware 6 file link mapper",
-  "type": "shopware-platform-plugin",
+  "type": "symfony-bundle",
   "version": "1.0.0",
   "authors": [
     {
@@ -18,7 +18,6 @@
     }
   },
   "extra": {
-    "shopware-plugin-class": "Yireo\\FileLinkMapper\\YireoFileLinkMapper",
     "copyright": "Jisse Reitsma",
     "label": {
       "en-GB": "YireoFileLinkMapper"
